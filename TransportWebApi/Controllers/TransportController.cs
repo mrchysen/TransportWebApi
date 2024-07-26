@@ -7,8 +7,15 @@ public class TransportController : Controller
 {
     [HttpGet]
     [Route("get_info")]
-    public IActionResult GetInfo(string? id)
+    public IActionResult GetInfo([FromQuery] string? id)
     {
         return Ok(id);
-    } 
+    }
+
+    [HttpGet]
+    [Route("GetCars/{date:datetime}")]
+    public async Task<IActionResult> GetCarsFromDate(DateTime date) 
+    {
+        return Json(new { Name="hello there", Date=date });
+    }
 }
