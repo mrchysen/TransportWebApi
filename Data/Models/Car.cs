@@ -1,4 +1,4 @@
-﻿namespace TransportWebApi.Models;
+﻿namespace Data.Models;
 
 public class Car
 {

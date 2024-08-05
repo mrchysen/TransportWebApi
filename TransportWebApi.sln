@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransportWebApi", "TransportWebApi\TransportWebApi.csproj", "{0FF44A88-4F47-4BB9-8364-C58882724560}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TransportWebApi", "TransportWebApi\TransportWebApi.csproj", "{0FF44A88-4F47-4BB9-8364-C58882724560}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{7FB912FC-0C89-4DA9-A477-784359A37277}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0FF44A88-4F47-4BB9-8364-C58882724560}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FF44A88-4F47-4BB9-8364-C58882724560}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FF44A88-4F47-4BB9-8364-C58882724560}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB912FC-0C89-4DA9-A477-784359A37277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB912FC-0C89-4DA9-A477-784359A37277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB912FC-0C89-4DA9-A477-784359A37277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB912FC-0C89-4DA9-A477-784359A37277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
