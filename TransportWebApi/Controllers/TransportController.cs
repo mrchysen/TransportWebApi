@@ -3,6 +3,7 @@
 namespace TransportWebApi.Controllers;
 
 [Route("api")]
+[ApiController]
 public class TransportController : Controller
 {
     [HttpGet]
