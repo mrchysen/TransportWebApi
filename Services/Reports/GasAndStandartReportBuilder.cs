@@ -1,6 +1,6 @@
-﻿using TransportWebApi.Models;
+﻿using Data.Models;
 
-namespace KrasTechMontacApplication.Logic.Reports;
+namespace Service.Reports;
 
 public class GasAndStandartReportBuilder : IReportBuilder
 {

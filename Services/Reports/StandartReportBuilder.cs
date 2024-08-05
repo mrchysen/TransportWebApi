@@ -1,8 +1,8 @@
 ﻿using System.Text;
-using TransportWebApi.Models;
+using Data.Models;
 
 
-namespace KrasTechMontacApplication.Logic.Reports;
+namespace Service.Reports;
 
 public class StandartReportBuilder : IReportBuilder
 {

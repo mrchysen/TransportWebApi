@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TransportWebApi.Models;
+﻿using System.Text;
+using Data.Models;
 
-namespace KrasTechMontacApplication.Logic.Reports;
+namespace Service.Reports;
 
 public class GasReportBuilder : IReportBuilder
 {

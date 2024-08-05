@@ -1,6 +1,5 @@
-﻿using TransportWebApi.Models;
-
-namespace KrasTechMontacApplication.Logic.Reports;
+﻿using Data.Models;
+namespace Service.Reports;
 
 public interface IReportBuilder
 {
