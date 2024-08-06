@@ -1,21 +1,9 @@
-using Microsoft.OpenApi.Models;
-using System.Reflection;
+using Infrastructure.BuilderExtensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddSwaggerGen(conf =>
-{
-    conf.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Version = "v1",
-        Title = "Transport API",
-        Description = "Api for KTM report application.",
-    });
-
-    conf.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, 
-                            $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
-});
+builder.Services.AddConfiguredSwagger();
 
 var app = builder.Build();
 
