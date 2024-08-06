@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Service.Reports;
+namespace Core.Reports;
 
 /// <summary>
 /// Report class

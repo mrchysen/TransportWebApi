@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using Data.Models;
+using Core.Models;
 
-namespace Service.Reports;
+namespace Core.Reports;
 
 public class GasReportBuilder : IReportBuilder
 {
