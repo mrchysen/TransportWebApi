@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace TransportWebApi.Controllers;
+namespace Web.Controllers.Transport;
 
 [Route("api")]
 [ApiController]
@@ -26,8 +26,8 @@ public class TransportController : Controller
     /// <returns></returns>
     [HttpGet("GetCars/{date:datetime}", Name = "GetCarsFromDate")]
     [Produces("application/json")]
-    public async Task<IActionResult> GetCarsFromDate(DateTime date) 
+    public async Task<IActionResult> GetCarsFromDate(DateTime date)
     {
-        return Json(new { Name="hello there", Date=date });
+        return Json(new { Name = "hello there", Date = date });
     }
 }
