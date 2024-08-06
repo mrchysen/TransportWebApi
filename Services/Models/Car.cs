@@ -5,6 +5,7 @@ namespace Core.Models;
 public class Car
 {
     [Key]
+    public Guid Id { get; set; }
     public string Number { get; set; } = string.Empty;
 
     public bool IsWorked { get; set; } = false;
