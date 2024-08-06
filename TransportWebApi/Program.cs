@@ -11,16 +11,10 @@ builder.Services.AddSwaggerGen(conf =>
         Version = "v1",
         Title = "Transport API",
         Description = "Api for KTM report application.",
-        Contact = new OpenApiContact
-        {
-            Name = "Ilya",
-            Email = "kokos8654@mail.ru"
-        }
     });
 
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    conf.IncludeXmlComments(xmlPath);
+    conf.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, 
+                            $"{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 });
 
 var app = builder.Build();
