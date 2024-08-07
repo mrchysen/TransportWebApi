@@ -1,13 +1,14 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using System.Reflection;
+﻿using Microsoft.OpenApi.Models;
+using Microsoft.AspNetCore.Builder;
 
-namespace Infrastructure.BuilderExtensions;
+namespace Web;
 
-public static class ConfiguredSwagger
+public static class Bootstraps
 {
-    public static IServiceCollection AddConfiguredSwagger(this IServiceCollection services)
+    public static IServiceCollection AddWeb(this IServiceCollection services)
     {
+        services.AddControllers();
+
         return services.AddSwaggerGen(conf =>
         {
             conf.SwaggerDoc("v1", new OpenApiInfo

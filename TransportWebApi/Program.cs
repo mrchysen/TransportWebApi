@@ -1,9 +1,8 @@
-using Infrastructure.BuilderExtensions;
+using Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
-builder.Services.AddConfiguredSwagger();
+builder.Services.AddWeb();
 
 var app = builder.Build();
 
