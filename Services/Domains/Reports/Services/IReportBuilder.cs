@@ -1,6 +1,7 @@
-﻿using Core.Models;
+﻿using Core.Domains.Cars.Models;
+using Core.Domains.Reports.Models;
 
-namespace Core.Reports;
+namespace Core.Domains.Reports.Services;
 
 public interface IReportBuilder
 {

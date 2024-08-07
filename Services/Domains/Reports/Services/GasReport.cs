@@ -1,7 +1,8 @@
 ﻿using System.Text;
-using Core.Models;
+using Core.Domains.Cars.Models;
+using Core.Domains.Reports.Models;
 
-namespace Core.Reports;
+namespace Core.Domains.Reports.Services;
 
 public class GasReportBuilder : IReportBuilder
 {
@@ -10,20 +11,20 @@ public class GasReportBuilder : IReportBuilder
     public string ReportType() => "Топливный отчёт";
 
     public Report Build() => Report;
-    
+
     public IReportBuilder GetBaseReport(List<Car> cars)
     {
         StringBuilder sb = new StringBuilder();
 
         var GasCars = cars.Where(c => c.FuelEnd > 0 && c.FuelBegin >= 0 || c.FuelBegin > 0 && c.FuelEnd == 0).ToList();
 
-        if(GasCars.Count > 0)
+        if (GasCars.Count > 0)
         {
-            foreach (var car in GasCars) 
+            foreach (var car in GasCars)
             {
                 string text = "";
 
-                if(car.FuelEnd > 0 && car.FuelBegin >= 0)
+                if (car.FuelEnd > 0 && car.FuelBegin >= 0)
                 {
                     text = $"заправка: с {car.FuelBegin} до {car.FuelEnd} ({car.FuelEnd - car.FuelBegin} литров)";
                 }

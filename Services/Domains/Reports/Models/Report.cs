@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Core.Reports;
+namespace Core.Domains.Reports.Models;
 
 /// <summary>
 /// Report class
@@ -18,5 +18,5 @@ public class Report
                    .Append(BasePart)
                    .ToString();
     }
-    
+
 }
