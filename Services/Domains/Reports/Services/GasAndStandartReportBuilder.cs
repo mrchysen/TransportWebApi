@@ -1,6 +1,5 @@
 ﻿using Core.Domains.Cars.Models;
 using Core.Domains.Reports.Models;
-using Core.Reports;
 
 namespace Core.Domains.Reports.Services;
 
