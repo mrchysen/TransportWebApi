@@ -1,10 +1,12 @@
 using Web;
 using Core;
+using Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddWeb()
-    .AddCore();
+    .AddCore()
+    .AddData(builder.Configuration);
 
 var app = builder.Build();
 
