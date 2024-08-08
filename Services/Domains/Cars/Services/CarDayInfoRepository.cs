@@ -11,25 +11,27 @@ public class CarDayInfoRepository : ICarDayInfoRepository
         DbContext = dbContext;
     }
 
-    public CarDayInfo Get(int id)
+    public async Task<CarDayInfo?> Get(Guid id)
     {
-        return DbContext.Get(id);
+        return await DbContext.Get(id);
     }
-    public IEnumerable<CarDayInfo> Get(DateTime date)
+    public async Task<IEnumerable<CarDayInfo>> Get(DateTime date)
     {
-        return DbContext.Get(date);
+        var collection = await DbContext.Get(date);
+
+        return collection ?? Enumerable.Empty<CarDayInfo>();
     }
-    public void Update(CarDayInfo carDayInfo)
+    public async Task Update(CarDayInfo carDayInfo)
     {
-        DbContext.Update(carDayInfo);
+        await DbContext.Update(carDayInfo);
     }
-    public void Delete(int id)
+    public async Task Delete(Guid id)
     {
-        DbContext.Delete(id); 
+        await DbContext.Delete(id); 
     }
 
-    public void Create(CarDayInfo carDayInfo)
+    public async Task Create(CarDayInfo carDayInfo)
     {
-        DbContext.Create(carDayInfo);
+        await DbContext.Create(carDayInfo);
     }
 }
