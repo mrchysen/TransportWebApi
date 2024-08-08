@@ -4,9 +4,9 @@ namespace Core.Domains.Cars.Services;
 
 public interface ICarDayInfoKeeper
 {
-    CarDayInfo Get(int id);
-    IEnumerable<CarDayInfo> Get(DateTime date);
-    void Update(CarDayInfo carDayInfo);
-    void Delete(int id);
-    void Create(CarDayInfo carDayInfo);
+    Task<CarDayInfo?> Get(Guid id);
+    Task<IEnumerable<CarDayInfo>> Get(DateTime date);
+    Task<bool> Update(CarDayInfo carDayInfo);
+    Task<string> Delete(Guid id);
+    Task<bool> Create(CarDayInfo carDayInfo);
 }
