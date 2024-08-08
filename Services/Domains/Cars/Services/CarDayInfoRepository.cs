@@ -1,5 +1,4 @@
 ﻿using Core.Domains.Cars.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Core.Domains.Cars.Services;
 
