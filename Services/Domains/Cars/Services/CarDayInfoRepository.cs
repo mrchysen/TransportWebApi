@@ -38,6 +38,12 @@ public class CarDayInfoRepository : ICarDayInfoRepository
 
     public async Task Create(CarDayInfo carDayInfo)
     {
+        carDayInfo.Id = Guid.NewGuid();
+
+        carDayInfo.Description = string.IsNullOrEmpty(carDayInfo.Description) ? 
+            "No discription" : 
+            carDayInfo.Description;
+
         await DbContext.Create(carDayInfo);
     }
 }
