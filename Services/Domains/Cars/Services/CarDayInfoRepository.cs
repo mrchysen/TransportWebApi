@@ -1,4 +1,5 @@
 ﻿using Core.Domains.Cars.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Core.Domains.Cars.Services;
 
@@ -20,6 +21,12 @@ public class CarDayInfoRepository : ICarDayInfoRepository
         var collection = await DbContext.Get(date);
 
         return collection ?? Enumerable.Empty<CarDayInfo>();
+    }
+    public async Task<Dictionary<DateTime, int>> GetGroupDateTimeCount()
+    {
+        var dic = await DbContext.GetGroupDateTimeCount();
+
+        return dic;
     }
     public async Task Update(CarDayInfo carDayInfo)
     {

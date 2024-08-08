@@ -20,6 +20,15 @@ public class ApplicationDbContext : DbContext, ICarDayInfoKeeper
 
         return await collection.ToListAsync();
     }
+    public async Task<Dictionary<DateTime, int>> GetGroupDateTimeCount()
+    {
+        var dic = await CarDayInfos.GroupBy(el => el.Date)
+            .Select(el => new { el.Key, Count = el.Count() })
+            .ToDictionaryAsync(el => el.Key, el => el.Count);
+
+        return dic;
+    }
+
     public async Task<bool> Update(CarDayInfo carDayInfo)
     {
         try
