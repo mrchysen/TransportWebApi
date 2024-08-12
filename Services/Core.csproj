@@ -12,9 +12,12 @@
   
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="5.*" />
+    <PackageReference Include="NLog" Version="5.*" />
   </ItemGroup>
   
   <ItemGroup>
     <Folder Include="Extensions\" />
+    <Folder Include="Logging\" />
   </ItemGroup>
 </Project>
