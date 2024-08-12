@@ -16,6 +16,7 @@ public static class Bootstraps
             opt.UseNpgsql(configuration.GetConnectionString("PostrgeSql"));
         });
         
+        services.AddTransient<ICarDayInfoKeeper,  CarDayInfoKeeper>();
         services.AddTransient<IUnitOfWork, UnitOfWork>();
 
         return services;

@@ -9,8 +9,5 @@ public class UnitOfWork : IUnitOfWork
     {
         Context = context;
     }
-    public void Save()
-    {
-        Context.SaveChanges();
-    }
+    public async Task<int> SaveAsync() => await Context.SaveChangesAsync();
 }
