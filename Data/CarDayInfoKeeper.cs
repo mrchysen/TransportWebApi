@@ -20,13 +20,13 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
     public async Task<CarDayInfo?> Get(Guid id)
         => await CarDayInfos.Where(el => el.Id == id).AsNoTracking().FirstOrDefaultAsync();
 
-    public async Task<IEnumerable<CarDayInfo>> Get(DateTime date)
+    public async Task<IEnumerable<CarDayInfo>> Get(DateOnly date)
     {
         var collection = CarDayInfos.Where(el => el.Date.Equals(date)).AsNoTracking();
 
         return await collection.ToListAsync();
     }
-    public async Task<Dictionary<DateTime, int>> GetGroupDateTimeCount()
+    public async Task<Dictionary<DateOnly, int>> GetGroupDateTimeCount()
     {
         var dic = await CarDayInfos.GroupBy(el => el.Date)
             .Select(el => new { el.Key, Count = el.Count() })

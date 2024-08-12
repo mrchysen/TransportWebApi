@@ -38,7 +38,7 @@ public class TransportController : Controller
     }
 
     [HttpGet("get-count", Name = "GetCountCarDayInfoGroupByDateTime")]
-    public async Task<Dictionary<DateTime, int>> GetCountCarDayInfoGroupByDateTime()
+    public async Task<Dictionary<DateOnly, int>> GetCountCarDayInfoGroupByDateTime()
     {
         // ToDo make with DateOnly
 
@@ -52,7 +52,7 @@ public class TransportController : Controller
     /// <returns></returns>
     [HttpGet("get-by-date/{date:datetime}", Name = "GetCarsFromDate")]
     [Produces("application/json")]
-    public async Task<IEnumerable<CarDayInfo>> GetCarsFromDate(DateTime date)
+    public async Task<IEnumerable<CarDayInfo>> GetCarsFromDate(DateOnly date)
     {
         var collection = await Repository.Get(date);
 

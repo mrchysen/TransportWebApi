@@ -15,13 +15,13 @@ public class CarDayInfoRepository : ICarDayInfoRepository
     {
         return await DbContext.Get(id);
     }
-    public async Task<IEnumerable<CarDayInfo>> Get(DateTime date)
+    public async Task<IEnumerable<CarDayInfo>> Get(DateOnly date)
     {
         var collection = await DbContext.Get(date);
 
         return collection ?? Enumerable.Empty<CarDayInfo>();
     }
-    public async Task<Dictionary<DateTime, int>> GetGroupDateTimeCount()
+    public async Task<Dictionary<DateOnly, int>> GetGroupDateTimeCount()
     {
         var dic = await DbContext.GetGroupDateTimeCount();
 
