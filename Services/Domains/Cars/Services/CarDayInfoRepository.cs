@@ -44,6 +44,8 @@ public class CarDayInfoRepository : ICarDayInfoRepository
             "No discription" : 
             carDayInfo.Description;
 
+        carDayInfo.Cars.ForEach(car => car.Id = Guid.NewGuid());
+
         await DbContext.Create(carDayInfo);
 
         return carDayInfo.Id.ToString();
