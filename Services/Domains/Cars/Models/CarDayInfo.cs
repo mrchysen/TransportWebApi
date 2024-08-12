@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Domains.Cars.Models;
 
+[Table("car_day_info")]
 public class CarDayInfo
 {
     [Key]
