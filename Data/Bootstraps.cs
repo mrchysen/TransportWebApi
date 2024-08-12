@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Core.Domains.Cars.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Core;
 
 namespace Data;
 
@@ -10,14 +11,13 @@ public static class Bootstraps
 {
     public static IServiceCollection AddData(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddTransient<ICarDayInfoKeeper, ApplicationDbContext>((fac) =>
+        services.AddDbContext<ApplicationDbContext>((opt) =>
         {
-            var options = new DbContextOptionsBuilder<ApplicationDbContext>().
-            UseNpgsql(configuration.GetConnectionString("PostrgeSql"));
-
-            return new ApplicationDbContext(options.Options);
+            opt.UseNpgsql(configuration.GetConnectionString("PostrgeSql"));
         });
         
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
+
         return services;
     }
 }
