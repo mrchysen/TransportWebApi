@@ -9,10 +9,11 @@ namespace Web.Controllers.Transport;
 public class TransportController : Controller
 {
     public readonly ICarDayInfoRepository Repository;
-
-    public TransportController(ICarDayInfoRepository repository)
+    private readonly ILogger<TransportController> Logger;
+    public TransportController(ICarDayInfoRepository repository, ILogger<TransportController> logger)
     {
         Repository = repository;
+        Logger = logger;
     }
 
     /// <summary>
@@ -40,7 +41,7 @@ public class TransportController : Controller
     [HttpGet("get-count", Name = "GetCountCarDayInfoGroupByDateTime")]
     public async Task<Dictionary<DateOnly, int>> GetCountCarDayInfoGroupByDateTime()
     {
-        // ToDo make with DateOnly
+        Logger.LogInformation("hello from GetCountCarDayInfoGroupByDateTime");
 
         return await Repository.GetGroupDateTimeCount();
     } 
