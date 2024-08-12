@@ -22,7 +22,7 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
         // ToDo make this depends on appsettings.json
 
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5438;Database=KTMdb;Username=postgres;Password=12345");
+        optionsBuilder.UseNpgsql("Host=localhost;Port=5438;Database=ktm_db;Username=postgres;Password=12345");
 
         return new ApplicationDbContext(optionsBuilder.Options);
     }
