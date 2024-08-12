@@ -27,16 +27,16 @@ public class CarDayInfoRepository : ICarDayInfoRepository
 
         return dic;
     }
-    public async Task Update(CarDayInfo carDayInfo)
+    public async Task<bool> Update(CarDayInfo carDayInfo)
     {
-        await DbContext.Update(carDayInfo);
+        return await DbContext.Update(carDayInfo);
     }
-    public async Task Delete(Guid id)
+    public async Task<string> Delete(Guid id)
     {
-        await DbContext.Delete(id); 
+        return await DbContext.Delete(id); 
     }
 
-    public async Task Create(CarDayInfo carDayInfo)
+    public async Task<string> Create(CarDayInfo carDayInfo)
     {
         carDayInfo.Id = Guid.NewGuid();
 
@@ -45,5 +45,7 @@ public class CarDayInfoRepository : ICarDayInfoRepository
             carDayInfo.Description;
 
         await DbContext.Create(carDayInfo);
+
+        return carDayInfo.Id.ToString();
     }
 }
