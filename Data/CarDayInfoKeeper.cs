@@ -2,6 +2,7 @@
 using Core.Domains.Cars.Models;
 using Core.Domains.Cars.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace Data;
 
@@ -9,12 +10,14 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
 {
     private readonly ApplicationDbContext Context;
     private readonly IUnitOfWork UnitOfWork;
+    private readonly ILogger<CarDayInfoKeeper> Logger;
     private DbSet<CarDayInfo> CarDayInfos => Context.CarDayInfos;
 
-    public CarDayInfoKeeper(ApplicationDbContext context, IUnitOfWork unitOfWork)
+    public CarDayInfoKeeper(ApplicationDbContext context, IUnitOfWork unitOfWork, ILogger<CarDayInfoKeeper> logger)
     {
         Context = context;
         UnitOfWork = unitOfWork;
+        Logger = logger;
     }
 
     public async Task<CarDayInfo?> Get(Guid id)
@@ -45,7 +48,7 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
         }
         catch (Exception ex)
         {
-            // ToDo make log ex.Message here
+            Logger.LogError($"Error from CarDayInfoKeeper.Update; ex.Message:{ex.Message}");
 
             return false;
         }
@@ -70,7 +73,7 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
         }
         catch (Exception ex)
         {
-            // ToDo make log ex.Message here
+            Logger.LogError($"Error from CarDayInfoKeeper.Delete; ex.Message:{ex.Message}");
 
             return "Removing error";
         }
@@ -87,7 +90,7 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
         }
         catch (Exception ex)
         {
-            // ToDo make log ex.Message here
+            Logger.LogError($"Error from CarDayInfoKeeper.Create; ex.Message:{ex.Message}");
 
             return false;
         }
