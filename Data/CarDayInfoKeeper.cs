@@ -54,14 +54,17 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
     }
     public async Task<string> Delete(Guid id)
     {
-        var entity = await CarDayInfos.Where(el => el.Id == id).FirstOrDefaultAsync();
+        var entity = await CarDayInfos.Where(el => el.Id == id).Include(el => el.Cars).FirstOrDefaultAsync();
 
         if (entity == null)
             return "No such object";
 
+        var cars = entity.Cars;
+        
         try
         {
             CarDayInfos.Remove(entity);
+            Context.RemoveRange(cars);
 
             await UnitOfWork.SaveAsync();
         }

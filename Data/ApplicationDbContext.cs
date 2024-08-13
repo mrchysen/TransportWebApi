@@ -2,6 +2,7 @@
 using Core.Domains.Cars.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using System.Reflection.Metadata;
 
 namespace Data;
 
