@@ -45,6 +45,8 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
             await CarDayInfos.AddAsync(carDayInfo);
 
             await UnitOfWork.SaveAsync();
+
+            Logger.LogInformation($"Update carDayInfo({carDayInfo.Id})");
         }
         catch (Exception ex)
         {
@@ -63,13 +65,17 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
             return "No such object";
 
         var cars = entity.Cars;
-        
+
+        var entityId = entity.Id;
+
         try
         {
             CarDayInfos.Remove(entity);
             Context.RemoveRange(cars);
 
             await UnitOfWork.SaveAsync();
+
+            Logger.LogInformation($"Delete carDayInfo({entityId})");
         }
         catch (Exception ex)
         {
@@ -87,6 +93,8 @@ public class CarDayInfoKeeper : ICarDayInfoKeeper
             await CarDayInfos.AddAsync(carDayInfo);
 
             await UnitOfWork.SaveAsync();
+
+            Logger.LogInformation($"Create carDayInfo({carDayInfo.Id})");
         }
         catch (Exception ex)
         {
