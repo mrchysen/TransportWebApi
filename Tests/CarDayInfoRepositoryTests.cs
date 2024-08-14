@@ -38,9 +38,11 @@ public class CarDayInfoRepositoryTests
     public async Task Create_CarDayInfo_CheckIdAndDescriptionNotEmpty()
     {
         // Arrange
-        var CarDayInfo = new CarDayInfo
+        var description = "";
+
+        var carDayInfo = new CarDayInfo
         {
-            Description = "",
+            Description = description,
             Date = DateOnly.FromDateTime(DateTime.Now),
             Cars = new()
             {
@@ -55,7 +57,7 @@ public class CarDayInfoRepositoryTests
             .ReturnsAsync(true);
 
         // Act
-        var newCarDayInfo = await Service.Create(CarDayInfo);
+        var newCarDayInfo = await Service.Create(carDayInfo);
 
         // Assert
         newCarDayInfo.Id
@@ -66,7 +68,7 @@ public class CarDayInfoRepositoryTests
             .BeTrue();
         newCarDayInfo.Description
             .Should()
-            .NotBe(CarDayInfo.Description);
+            .NotBe(description);
 
         carDayInfoKeeperMoq.Verify(service => service.Create(It.IsAny<CarDayInfo>()), Times.Once);
     }
