@@ -9,5 +9,5 @@ public interface ICarDayInfoRepository
     Task<Dictionary<DateOnly, int>> GetGroupDateTimeCount();
     Task<bool> Update(CarDayInfo carDayInfo);
     Task<string> Delete(Guid id);
-    Task<string> Create(CarDayInfo carDayInfo);
+    Task<CarDayInfo> Create(CarDayInfo carDayInfo);
 }

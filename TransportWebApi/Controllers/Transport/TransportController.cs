@@ -87,10 +87,10 @@ public class TransportController : Controller
     /// <param name="carDayInfo"></param>
     /// <returns></returns>
     [HttpPost(Name = "CreateCarDayInfo")]
-    public async Task<IActionResult> Create(CarDayInfo carDayInfo)
+    public async Task<CarDayInfo> Create(CarDayInfo carDayInfo)
     {
-        var id = await Repository.Create(carDayInfo);
-        
-        return Ok(id);
+        var newCarDayInfo = await Repository.Create(carDayInfo);
+
+        return newCarDayInfo;
     }
 }
