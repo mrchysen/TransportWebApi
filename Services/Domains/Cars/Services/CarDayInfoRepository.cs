@@ -4,36 +4,36 @@ namespace Core.Domains.Cars.Services;
 
 public class CarDayInfoRepository : ICarDayInfoRepository
 {
-    public ICarDayInfoKeeper DbContext { get; set; }
+    public ICarDayInfoKeeper CarDayInfoKeeper { get; set; }
 
-    public CarDayInfoRepository(ICarDayInfoKeeper dbContext)
+    public CarDayInfoRepository(ICarDayInfoKeeper carDayInfoKeeper)
     {
-        DbContext = dbContext;
+        CarDayInfoKeeper = carDayInfoKeeper;
     }
 
     public async Task<CarDayInfo?> Get(Guid id)
     {
-        return await DbContext.Get(id);
+        return await CarDayInfoKeeper.Get(id);
     }
     public async Task<IEnumerable<CarDayInfo>> Get(DateOnly date)
     {
-        var collection = await DbContext.Get(date);
+        var collection = await CarDayInfoKeeper.Get(date);
 
         return collection ?? Enumerable.Empty<CarDayInfo>();
     }
     public async Task<Dictionary<DateOnly, int>> GetGroupDateTimeCount()
     {
-        var dic = await DbContext.GetGroupDateTimeCount();
+        var dic = await CarDayInfoKeeper.GetGroupDateTimeCount();
 
         return dic;
     }
     public async Task<bool> Update(CarDayInfo carDayInfo)
     {
-        return await DbContext.Update(carDayInfo);
+        return await CarDayInfoKeeper.Update(carDayInfo);
     }
     public async Task<string> Delete(Guid id)
     {
-        return await DbContext.Delete(id); 
+        return await CarDayInfoKeeper.Delete(id); 
     }
 
     public async Task<CarDayInfo> Create(CarDayInfo carDayInfo)
@@ -46,7 +46,7 @@ public class CarDayInfoRepository : ICarDayInfoRepository
 
         carDayInfo.Cars.ForEach(car => car.Id = Guid.NewGuid());
 
-        await DbContext.Create(carDayInfo);
+        await CarDayInfoKeeper.Create(carDayInfo);
 
         return carDayInfo;
     }
